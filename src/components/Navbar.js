@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import {
     MDBNavbar,
     MDBNavbarBrand,
@@ -19,42 +18,40 @@ function Navbar() {
   const [showNavSecond, setShowNavSecond] = React.useState(false);
 
   return (
-    <Router>
-      <MDBNavbar expand='lg' light bgColor='light'>
-        <MDBContainer fluid>
-          <MDBNavbarBrand href='#'>Asset Management</MDBNavbarBrand>
-          <MDBNavbarToggler
-            aria-controls='navbarSupportedContent'
-            aria-expanded='false'
-            aria-label='Toggle navigation'
-            onClick={() => setShowNavSecond(!showNavSecond)}
-          >
-            <MDBIcon icon='bars' fas />
-          </MDBNavbarToggler>
+    <MDBNavbar expand='lg' light bgColor='light'>
+      <MDBContainer fluid>
+        <MDBNavbarBrand href='#'>Asset Management</MDBNavbarBrand>
+        <MDBNavbarToggler
+          aria-controls='navbarSupportedContent'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+          onClick={() => setShowNavSecond(!showNavSecond)}
+        >
+          <MDBIcon icon='bars' fas />
+        </MDBNavbarToggler>
 
-          <MDBCollapse navbar show={showNavSecond}>
-            <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
-              {/* Hier können weitere Navbar Elemente platziert werden */}
-            </MDBNavbarNav>
+        <MDBCollapse navbar show={showNavSecond}>
+          <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
+            {/* Hier können weitere Navbar Elemente platziert werden */}
+          </MDBNavbarNav>
 
-            <MDBNavbarNav right fullWidth={false} className='mb-2 mb-lg-0'>
-              <MDBNavbarItem>
-                <MDBDropdown>
-                  <MDBDropdownToggle tag='a' className='nav-link'>
-                    <MDBIcon fas icon='user' />
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu>
-                      <MDBDropdownItem link href="/account">Account</MDBDropdownItem>
-                      <MDBDropdownItem link href="/license">License</MDBDropdownItem>
-                      <MDBDropdownItem link href="/logout">Logout</MDBDropdownItem>
-                  </MDBDropdownMenu>
-                </MDBDropdown>
-              </MDBNavbarItem>
-            </MDBNavbarNav>
-          </MDBCollapse>
-        </MDBContainer>
-      </MDBNavbar>
-    </Router>
+          <MDBNavbarNav right fullWidth={false} className='mb-2 mb-lg-0'>
+            <MDBNavbarItem>
+              <MDBDropdown>
+                <MDBDropdownToggle tag='a' className='nav-link'>
+                  <MDBIcon fas icon='user' />
+                </MDBDropdownToggle>
+                <MDBDropdownMenu>
+                    <MDBDropdownItem link href="/account">Account</MDBDropdownItem>
+                    <MDBDropdownItem link href="/license">License</MDBDropdownItem>
+                    <MDBDropdownItem link href="/logout">Logout</MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            </MDBNavbarItem>
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBContainer>
+    </MDBNavbar>
   );
 }
 
